@@ -3,6 +3,7 @@ import { useState } from 'react'
 import React from 'react'
 import { MyCounter } from '@ima/components'
 
+
 function App() {
   const [count, setCount] = useState(0);
 
@@ -11,10 +12,17 @@ function App() {
     setCount(value);
   };
 
+  const countProps = {
+    initCount: count,
+    updateCount: updateCountValue
+  }
+
   return (
     <div className="App">
       <h1>{count} seconds</h1>
-      <MyCounter startValue={count} updateCount={updateCountValue} />
+      <MyCounter {...countProps}>
+        <h1>hello</h1>
+      </MyCounter>
     </div >
   )
 }

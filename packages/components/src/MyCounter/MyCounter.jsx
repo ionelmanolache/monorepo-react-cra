@@ -1,16 +1,17 @@
 import React from "react"
 import { useEffect, useRef, useState } from 'react'
 
-const MyCounter = (props) => {
-    const [count, setCount] = useState(props.startValue || 0);
+// const MyCounter = (props) => {
+const MyCounter = ({children, initCount: startValue, updateCount: updateCountValue}) => {
+    const [count, setCount] = useState(startValue || 0);
     const [intervalId, setIntervalId] = useState(0);
 
     const incrementRef = useRef();
 
     useEffect(() => {
         console.log('send', count);
-        if (props.updateCount) {
-            props.updateCount(count);
+        if (updateCountValue) {
+            updateCountValue(count);
         }
     }, [count]);
 
@@ -38,6 +39,7 @@ const MyCounter = (props) => {
     return (
         <div>
             <button onClick={handleClick}>{intervalId ? 'Stop counting' : 'Start counting'}</button>
+            <div>{children}</div>
         </div>
     );
 
