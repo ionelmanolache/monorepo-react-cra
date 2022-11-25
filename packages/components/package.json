@@ -1,7 +1,7 @@
 {
   "name": "@ima/components",
   "version": "1.0.0",
-  "module": "dist/components.bundle.min.js",
+  "module": "dist/components.bundle.js",
   "scripts": {
     "build": "webpack",
     "build-watch": "webpack --watch",
