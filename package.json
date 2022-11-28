@@ -22,6 +22,9 @@
         "prop-types": "^15.8.1"
     },
     "scripts": {
+        "start:app": "npm run start -w @ima/home",
+        "build:app": "npm run build -w @ima/home",
+        "build:comp": "npm run build -w @ima/components",
         "prepare": "husky install"
     }
 }
