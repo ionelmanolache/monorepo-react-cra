@@ -1,14 +1,17 @@
 import PropTypes from 'prop-types';
 import React, { useEffect, useRef, useState } from 'react';
 
-MyCounter.propTypes = {
-    children: PropTypes.node.any,
-    initCount: PropTypes.node.any,
-    updateCount: PropTypes.node.any
-};
+const MyCounter = (props) => {
+    // https://reactjs.org/docs/typechecking-with-proptypes.html
+    MyCounter.propTypes = {
+        children: PropTypes.node,
+        initCount: PropTypes.number,
+        updateCount: PropTypes.func
+    };
 
-// const MyCounter = (props) => {
-const MyCounter = ({ children, initCount: startValue, updateCount: updateCountValue }) => {
+    const startValue = props.initCount;
+    const updateCountValue = props.updateCount;
+
     const [count, setCount] = useState(startValue || 0);
     const [intervalId, setIntervalId] = useState(0);
 
@@ -45,7 +48,7 @@ const MyCounter = ({ children, initCount: startValue, updateCount: updateCountVa
     return (
         <div>
             <button onClick={ handleClick }>{ intervalId ? 'Stop counting' : 'Start counting' }</button>
-            <div>{ children }</div>
+            <div>{ props.children }</div>
         </div>
     );
 

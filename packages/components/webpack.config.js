@@ -7,7 +7,9 @@ module.exports = () => {
             components: './src/index.js'
         },
 
-        externals: { react: 'react' },
+        externals: {
+            react: 'react'
+        },
 
         mode: 'production',
 
@@ -33,7 +35,7 @@ module.exports = () => {
             library: {
                 type: 'umd'
             },
-            path: path.resolve(__dirname, 'dist'),
+            path: path.resolve(__dirname, 'dist')
         },
 
         resolve: {

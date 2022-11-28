@@ -16,7 +16,7 @@ const MyCounterController = (props) => {
     updateCounterRef.current = props.updateCount;
 
     useEffect(() => {
-        //console.log('useEffect send', count);
+    //console.log('useEffect send', count);
         updateCounterRef.current(count);
     }, [count]);
 
