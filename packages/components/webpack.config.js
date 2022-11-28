@@ -1,47 +1,43 @@
-const path = require("path")
+const path = require('path');
 
-module.exports = (env) => {
-    // console.log('Goal: ',env.goal, env);
-    // console.log('Production: ', !!env.production)
-
+module.exports = () => {
     return {
         //mode: !!env.production ? 'production':'development',
-        mode: 'production',
-
         entry: {
             components: './src/index.js'
         },
 
-        resolve: {
-            extensions: ['.js', '.jsx']
-        },
+        externals: { react: 'react' },
+
+        mode: 'production',
 
         module: {
             rules: [
                 {
-                    test: /\.(js|jsx)$/,
                     exclude: /node_modules/,
-                    loader: "babel-loader",
+                    loader: 'babel-loader',
                     options: {
                         presets: [
                             '@babel/preset-env',
                             '@babel/react'
                         ]
-
-                    }
-                },
-            ],
+                    },
+                    test: /\.(js|jsx)$/
+                }
+            ]
         },
 
         output: {
+            clean: true,
             filename: '[name].bundle.js',
-            path: path.resolve(__dirname, 'dist'),
             library: {
                 type: 'umd'
             },
-            clean: true
+            path: path.resolve(__dirname, 'dist'),
         },
 
-        externals: { react: 'react' }
-    }
-}
+        resolve: {
+            extensions: ['.js', '.jsx']
+        }
+    };
+};
