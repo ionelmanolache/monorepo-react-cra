@@ -4,7 +4,7 @@ module.exports = {
         browser: true, // Browser global variables like `window` etc.
         commonjs: true, // CommonJS global variables and CommonJS scoping.Allows require, exports and module.
         //es6: true, // Enable all ECMAScript 6 features except for modules.
-        es2020:true,
+        es2020: true,
         jest: true, // Jest global variables like `it` etc.
         node: true // Defines things like process.env when generating through node
     },
@@ -26,7 +26,7 @@ module.exports = {
     },
     plugins: [
         'import' // eslint-plugin-import plugin. https://www.npmjs.com/package/eslint-plugin-import
-        ,'react'
+        , 'react'
     ],
     root: true, // For configuration cascading.
     rules: {
@@ -167,7 +167,7 @@ module.exports = {
             version: 'detect' // Detect react version
         }
     }
-    
+
     //for TypeScript
     // overrides: [
     //     {
